@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Entregable 2 — Simulador de Viajes</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header>
+    <h1>Simulador de Viajes</h1>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>Nueva cotización</h2>
+      <form id="form" novalidate>
+        <label>Destino
+          <select id="destino" required>
+            <option value="">Selecciona...</option>
+            <option value="Rio de Janeiro">Rio de Janeiro</option>
+            <option value="Buenos Aires">Buenos Aires</option>
+            <option value="Santiago de Chile">Santiago de Chile</option>
+            <option value="Punta Cana">Punta Cana</option>
+          </select>
+        </label>
+        <label>Personas
+          <input id="personas" type="number" min="1" required>
+        </label>
+        <label>Noches
+          <input id="noches" type="number" min="1" required>
+        </label>
+        <label class="check">
+          <input id="seguro" type="checkbox"> Incluir seguro (USD 3.5 por persona/noche)
+        </label>
+        <label class="check">
+          <input id="equipaje" type="checkbox"> Equipaje extra (USD 20 por persona)
+        </label>
+
+        <div id="errores" class="errores" aria-live="polite"></div>
+        <div class="acciones">
+          <button type="submit" id="agregar">Agregar</button>
+          <button type="button" id="vaciar">Vaciar todo</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Cotizaciones</h2>
+      <table id="tabla">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Destino</th>
+            <th>Personas</th>
+            <th>Noches</th>
+            <th>Seguro</th>
+            <th>Equipaje</th>
+            <th>Total (USD)</th>
+            <th>Acción</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+        <tfoot>
+          <tr>
+            <td colspan="6" class="right">Suma de totales</td>
+            <td id="suma">0.00</td>
+            <td></td>
+          </tr>
+        </tfoot>
+      </table>
+      <p id="vacio" class="vacio">No hay cotizaciones.</p>
+      <p id="msg" class="msg" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
